@@ -5,6 +5,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const instruments = require('./src/api/instruments');
+const bpms = require('./src/api/bpms');
+const progressions = require('./src/api/progressions');
 
 const app = express();
 
@@ -20,6 +22,8 @@ mongoose
   .catch((error) => {console.log(error)});
 
 app.use('/api/instruments', instruments);
+app.use('/api/bpms', bpms);
+app.use('/api/progressions', progressions);
 
 const port = process.env.PORT || 6969;
 
